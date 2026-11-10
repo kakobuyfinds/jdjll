@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#142925">
+  <title>HooBuy spreadsheet po polsku – kategorie, rozmiary i QC</title>
+  <meta name="description" content="Przeglądaj kategorie HooBuy spreadsheet i sprawdź, jak porównać linki produktowe, dobrać rozmiar, ocenić zdjęcia QC i oszacować koszt wysyłki do Polski.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:title" content="HooBuy spreadsheet po polsku – kategorie, rozmiary i QC">
+  <meta property="og:description" content="Przeglądaj kategorie HooBuy spreadsheet i sprawdź, jak porównać linki produktowe, dobrać rozmiar, ocenić zdjęcia QC i oszacować koszt wysyłki do Polski.">
+  <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/8/86/Airforce1.jpg">
+  <meta property="og:image:alt" content="But sportowy Nike Air Force 1">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #142925;
+      --muted: #4d5e57;
+      --paper: #f6f5ee;
+      --surface: #fff;
+      --line: #d5ddd5;
+      --mint: #dcf0d9;
+      --lilac: #e8e0f7;
+      --orange: #ffc883;
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: var(--paper);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body, figure, dl, dd { margin: 0; }
+    a { color: inherit; }
+    :where(a, summary):focus-visible {
+      outline: 3px solid #7745a1;
+      outline-offset: 4px;
+    }
+    img { display: block; max-inline-size: 100%; block-size: auto; }
+    h1, h2, h3 { margin: 0; line-height: 1.14; }
+    p { margin: .7rem 0 0; }
+    .wrap { width: min(72rem, calc(100% - 2rem)); margin-inline: auto; }
+    .topbar { background: var(--ink); color: #fff; }
+    .topbar .wrap {
+      min-height: 4.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: .25rem 1rem;
+      padding-block: .65rem;
+    }
+    .brand { font-weight: 800; text-decoration: none; }
+    .topbar p { margin: 0; color: var(--mint); font-size: .86rem; }
+    .topbar a:focus-visible { outline-color: var(--orange); }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.16fr) minmax(0, .84fr);
+      align-items: center;
+      gap: clamp(1.3rem, 4vw, 3.5rem);
+      padding-block: clamp(2rem, 5vw, 4.5rem);
+    }
+    .eyebrow {
+      margin: 0 0 .65rem;
+      font-size: .77rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    h1 { font-size: clamp(2.45rem, 6vw, 5rem); letter-spacing: -.055em; }
+    h2 { font-size: clamp(1.65rem, 3.5vw, 2.65rem); letter-spacing: -.035em; }
+    h3 { font-size: 1.16rem; }
+    .lead { max-width: 59ch; font-size: clamp(1rem, 1.7vw, 1.14rem); }
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      min-height: 3rem;
+      padding: .65rem 1rem;
+      margin-top: 1.1rem;
+      border: 1px solid var(--ink);
+      border-radius: .55rem;
+      background: var(--orange);
+      font-weight: 750;
+      text-decoration: none;
+    }
+    .cta:hover { background: #ffb85f; }
+    .hero-image {
+      padding: .85rem;
+      border: 1px solid var(--line);
+      border-radius: 1.1rem;
+      background: var(--lilac);
+    }
+    .hero-image img { width: 100%; border-radius: .6rem; }
+    figcaption { padding: .5rem .2rem 0; font-size: .84rem; color: var(--muted); }
+    .band { padding-block: clamp(2rem, 5vw, 4rem); }
+    .category-band { background: var(--mint); border-block: 1px solid var(--line); }
+    .section-intro { max-width: 67ch; color: var(--muted); }
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 11.25rem), 1fr));
+      gap: .65rem;
+      padding: 0;
+      margin: 1.25rem 0 0;
+      list-style: none;
+    }
+    .category-grid a {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: .6rem;
+      height: 100%;
+      min-height: 3.5rem;
+      padding: .65rem .8rem;
+      border: 1px solid #aebfae;
+      border-radius: .55rem;
+      background: var(--surface);
+      font-weight: 720;
+      line-height: 1.3;
+      text-decoration: none;
+    }
+    .category-grid a:hover { background: var(--lilac); text-decoration: underline; }
+    .guide-grid, .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+      gap: .85rem;
+      margin-top: 1.2rem;
+    }
+    .guide-grid article {
+      padding: 1.1rem;
+      border: 1px solid var(--line);
+      border-radius: .7rem;
+      background: var(--surface);
+    }
+    .step {
+      display: inline-block;
+      margin-bottom: .7rem;
+      padding: .14rem .5rem;
+      border-radius: .3rem;
+      background: var(--lilac);
+      font-size: .81rem;
+      font-weight: 800;
+    }
+    .checklist {
+      margin-top: 1.2rem;
+      padding: 1.15rem;
+      border-inline-start: .28rem solid #7745a1;
+      background: var(--lilac);
+    }
+    .checklist ul { margin: .6rem 0 0; padding-inline-start: 1.15rem; }
+    .checklist li + li { margin-top: .35rem; }
+    .gallery-band { background: #eeefe6; border-block: 1px solid var(--line); }
+    .gallery figure {
+      overflow: hidden;
+      padding: .55rem;
+      border: 1px solid var(--line);
+      border-radius: .7rem;
+      background: var(--surface);
+    }
+    .photo {
+      display: grid;
+      place-items: center;
+      aspect-ratio: 4 / 3;
+      background: var(--paper);
+    }
+    .photo img { width: 100%; height: 100%; object-fit: contain; }
+    .faq { margin-top: 1.1rem; border-top: 1px solid var(--line); }
+    .faq div { padding: .8rem 0; border-bottom: 1px solid var(--line); }
+    .faq dt { font-weight: 780; }
+    .faq dd { max-width: 76ch; margin-top: .25rem; color: var(--muted); }
+    footer { background: var(--ink); color: #fff; }
+    footer p { max-width: 74ch; color: #e2eee5; }
+    footer details { margin-top: 1rem; }
+    footer summary { width: fit-content; cursor: pointer; font-weight: 740; }
+    footer summary:focus-visible { outline-color: var(--orange); }
+    footer small { display: block; overflow-wrap: anywhere; }
+    @media (max-width: 42rem) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-image { max-width: 34rem; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "name": "HooBuy spreadsheet po polsku – kategorie, rozmiary i QC",
+        "description": "Przeglądaj kategorie HooBuy spreadsheet i sprawdź, jak porównać linki produktowe, dobrać rozmiar, ocenić zdjęcia QC i oszacować koszt wysyłki do Polski.",
+        "inLanguage": "pl",
+        "audience": {
+          "@type": "PeopleAudience",
+          "geographicArea": { "@type": "Country", "name": "Polska" }
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "inLanguage": "pl",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Co to jest HooBuy spreadsheet?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To zestawienie linków i informacji o produktach, które pomaga znaleźć i porównać oferty. Przed wyborem sprawdź aktualną kartę produktu, sprzedawcę i konkretny wariant."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Gdzie prowadzą odnośniki do kategorii?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Odnośniki prowadzą do odpowiednich kategorii w katalogu HipobuyFind. Dostępność i warianty sprawdzisz na kartach produktów w katalogu."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Czy zdjęcia QC potwierdzają autentyczność produktu?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Zdjęcia QC pomagają ocenić widoczne cechy i stan konkretnego egzemplarza. Do weryfikacji autentyczności potrzebne są odrębne informacje o pochodzeniu produktu."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Jak dobrać rozmiar butów, gdy tabele sprzedawców się różnią?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Zmierz obie stopy i użyj długości dłuższej z nich. Porównaj wynik z tabelą konkretnej oferty i ustal, czy podana wartość oznacza długość stopy, czy długość wkładki."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Jak obliczyć całkowity koszt przesyłki do Polski?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Przelicz cenę produktu na PLN i dolicz widoczne opłaty za dostawę lokalną, obsługę i transport do Polski. Zależnie od zamówienia uwzględnij też przewalutowanie oraz podatki i opłaty importowe, jeśli mają zastosowanie."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Co zrobić, gdy link do produktu nie działa?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Zapisz nazwę modelu, identyfikator produktu i wariant. Wyszukaj ofertę ponownie i porównaj dane sprzedawcy, zdjęcia oraz tabelę wymiarów, zanim uznasz nowy link za zamiennik."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+<link rel="canonical" href="https://kakobuyfinds.github.io/jdjll/">
+</head>
+<body>
+  <!--
+    Nazwa pliku: index.html. Kod dostarczono w rozmowie, ponieważ zapis osobnego pliku był niedostępny.
+    Zapytanie: HooBuy spreadsheet. Bezpośredni odczyt pierwszej strony Google
+    dla Polski był niedostępny. Poniżej 10 wyników dostępnych w wyszukiwaniu
+    internetowym, bez potwierdzenia ich pozycji w Google. Analiza opierała się
+    na dostępnych stronach lub fragmentach wyników.
+    https://rep.tools/guides/hoobuy-spreadsheet — definicja arkusza i adresy ofert
+    https://hoobuy.io/ — kategorie i zdjęcia QC
+    https://www.hoobuy-spreadsheet.com/ — podział asortymentu i wyszukiwanie marek
+    https://www.hoobuysheets.net/ — weryfikacja linków i wariantów
+    https://hoobuy-sheets.net/ — podział na typy produktów
+    https://hoobuyimport.com/ — linki do kategorii i proces zakupu
+    https://kakobuynike.com/hoobuy-spreadsheet — zakup, magazyn i wysyłka
+    https://hoospreadsheet.net/hoobuy-spreadsheet/ — obuwie, odzież i dodatki
+    https://hoobuydeliver.com/ — kategorie i dostawa międzynarodowa
+    https://www.jadeship.com/search/spreadsheet/hoobuy — wyszukiwanie ofert
+    Frazy poboczne: linki produktowe HooBuy, rozmiarówka HooBuy,
+    zdjęcia QC HooBuy, wysyłka HooBuy do Polski.
+    Adres kanoniczny zależy od adresu publikacji tej strony.
+  -->
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="https://www.hipobuyfind.com">www.hipobuyfind.com</a>
+      <p>Przewodnik zakupowy dla czytelników z Polski</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrap hero" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">Od kategorii do konkretnego wariantu</p>
+        <h1 id="page-title">HooBuy spreadsheet</h1>
+        <p class="lead">HooBuy spreadsheet to zestawienie linków do produktów i informacji, które pomagają porównywać oferty. Wybierz kategorię w katalogu HipobuyFind, a przed zakupem sprawdź wymiary, zdjęcia konkretnego egzemplarza i koszt dostawy do Polski.</p>
+        <a class="cta" href="https://www.hipobuyfind.com">Otwórz katalog HipobuyFind <span aria-hidden="true">&nbsp;↗</span></a>
+      </div>
+      <figure class="hero-image">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/86/Airforce1.jpg"
+             width="1920" height="1020" alt="But sportowy Nike Air Force 1 pokazany z boku"
+             loading="eager" fetchpriority="high">
+        <figcaption>Nike Air Force 1 · zdjęcie ilustracyjne</figcaption>
+      </figure>
+    </section>
+
+    <section class="category-band band" aria-labelledby="category-title">
+      <div class="wrap">
+        <p class="eyebrow">Katalog HipobuyFind</p>
+        <h2 id="category-title">Wybierz kategorię</h2>
+        <p class="section-intro">Otwórz dział, który Cię interesuje, i porównaj szczegóły na kartach wybranych produktów.</p>
+        <nav aria-label="Kategorie produktów HipobuyFind">
+          <ul class="category-grid">
+            <li><a href="https://hipobuyfind.com/category-911-Shoes.html">Buty <span aria-hidden="true">↗</span></a></li>
+            <li><a href="https://hipobuyfind.com/category-912-Hoodies%2FSweaters.html">Bluzy i swetry <span aria-hidden="true">↗</span></a></li>
+            <li><a href="https://hipobuyfind.com/category-913-T-Shirts.html">T-shirty <span aria-hidden="true">↗</span></a></li>
+            <li><a href="https://hipobuyfind.com/category-914-Jackets.html">Kurtki <span aria-hidden="true">↗</span></a></li>
+            <li><a href="https://hipobuyfind.com/category-915-Pants%2FShorts.html">Spodnie i szorty <span aria-hidden="true">↗</span></a></li>
+            <li><a href="https://hipobuyfind.com/category-916-Headwear.html">Nakrycia głowy <span aria-hidden="true">↗</span></a></li>
+            <li><a href="https://hipobuyfind.com/category-917-Sets.html">Komplety <span aria-hidden="true">↗</span></a></li>
+            <li><a href="https://hipobuyfind.com/category-918-underwear%2Funderpants.html">Bielizna <span aria-hidden="true">↗</span></a></li>
+            <li><a href="https://hipobuyfind.com/category-919-Jersey.html">Koszulki sportowe <span aria-hidden="true">↗</span></a></li>
+            <li><a href="https://hipobuyfind.com/category-920-Accessories.html">Akcesoria <span aria-hidden="true">↗</span></a></li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+
+    <section class="wrap band" aria-labelledby="guide-title">
+      <p class="eyebrow">Poradnik zakupowy</p>
+      <h2 id="guide-title">Cztery rzeczy do sprawdzenia przed zakupem</h2>
+      <div class="guide-grid">
+        <article>
+          <span class="step" aria-hidden="true">01</span>
+          <h3>Linki produktowe HooBuy</h3>
+          <p>Gdy znajdziesz podobny produkt na Weidian, Taobao lub 1688, zapisz identyfikator oferty, nazwę sprzedawcy i wybrany wariant kolorystyczny. Przy porównywaniu dwóch ofert tego samego modelu sprawdź też, co wchodzi w skład zestawu. Zdjęcie główne bywa wspólne dla kilku wersji, choć cena i dostępność rozmiarów się różnią.</p>
+        </article>
+        <article>
+          <span class="step" aria-hidden="true">02</span>
+          <h3>Rozmiarówka HooBuy</h3>
+          <p>Porównuj tabelę rozmiarów sprzedawcy z pomiarami rzeczy, którą już nosisz. Dla bluzy zmierz szerokość pod pachami i długość rękawa, a dla spodni szerokość w pasie na płasko i długość nogawki od kroku. Sprawdź, czy tabela podaje obwód, czy szerokość mierzoną na płasko. Przy butach ustal, czy wymiar dotyczy stopy, czy wkładki.</p>
+        </article>
+        <article>
+          <span class="step" aria-hidden="true">03</span>
+          <h3>Zdjęcia QC HooBuy</h3>
+          <p>Jeśli pośrednik udostępnia zdjęcia z kontroli jakości, porównaj wybrany kolor, oznaczenie rozmiaru i stan produktu. Przy butach obejrzyj obie sztuki od strony podeszwy, a przy odzieży sprawdź metkę, szwy i zapięcia. Jeśli brakuje ujęcia ważnego detalu, sprawdź możliwość zamówienia dodatkowego zdjęcia przed nadaniem paczki.</p>
+        </article>
+        <article>
+          <span class="step" aria-hidden="true">04</span>
+          <h3>Wysyłka HooBuy do Polski</h3>
+          <p>Porównaj łączny koszt w PLN, uwzględniając cenę produktu, dostawę do magazynu, opłaty za obsługę i transport do Polski. Przy większym kartonie sprawdź, czy wybrana linia rozlicza wagę rzeczywistą, czy objętościową. Przed połączeniem zamówień w jedną paczkę sprawdź zasady przewoźnika oraz warunki zwrotu sprzedawcy.</p>
+        </article>
+      </div>
+
+      <article class="checklist" aria-labelledby="check-title">
+        <h3 id="check-title">Co porównać w najczęściej wybieranych działach</h3>
+        <ul>
+          <li><strong>Sneakersy i buty sportowe.</strong> Zmierz obie stopy w skarpetach, które nosisz na co dzień. Sprawdź długość wkładki i szerokość przodu buta.</li>
+          <li><strong>Odzież na co dzień.</strong> W T-shircie porównaj skład materiału i wymiary po rozłożeniu na płasko. W kurtce sprawdź miejsce na dodatkową warstwę. W komplecie porównaj osobno wymiary góry i dołu.</li>
+          <li><strong>Czapki, torby i biżuteria.</strong> Sprawdź zakres regulacji obwodu czapki, długość paska torby oraz materiał, wymiary i typ zapięcia biżuterii.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="gallery-band band" aria-labelledby="gallery-title">
+      <div class="wrap">
+        <p class="eyebrow">Galeria inspiracji</p>
+        <h2 id="gallery-title">Od ulicznej mody po detale z archiwum</h2>
+        <p class="section-intro">Zdjęcia pokazują przykłady fasonów i dodatków. Dostępność poszczególnych modeli sprawdzisz w aktualnych ofertach.</p>
+        <div class="gallery">
+          <figure>
+            <div class="photo">
+              <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/Vuitton_Bag_%281187331740%29.jpg/250px-Vuitton_Bag_%281187331740%29.jpg"
+                   width="250" height="454" alt="Torebka Louis Vuitton"
+                   loading="lazy" decoding="async">
+            </div>
+            <figcaption>Louis Vuitton · torebka</figcaption>
+          </figure>
+          <figure>
+            <div class="photo">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Young_man_with_short_black_hair_wearing_Gucci_cap_from_behind.jpg/500px-Young_man_with_short_black_hair_wearing_Gucci_cap_from_behind.jpg"
+                   width="500" height="533" alt="Czapka z daszkiem Gucci widziana od tyłu"
+                   loading="lazy" decoding="async">
+            </div>
+            <figcaption>Gucci · czapka z daszkiem</figcaption>
+          </figure>
+          <figure>
+            <div class="photo">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Herm%C3%A8s_silk_scarf_in_shop_window_in_London.jpg/330px-Herm%C3%A8s_silk_scarf_in_shop_window_in_London.jpg"
+                   width="330" height="248" alt="Niebieska jedwabna apaszka Hermès na witrynie"
+                   loading="lazy" decoding="async">
+            </div>
+            <figcaption>Hermès · jedwabna apaszka</figcaption>
+          </figure>
+          <figure>
+            <div class="photo">
+              <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Christian_Dior_evening_gown_called_%22Z%C3%A9mire%22%2C_Fall-Winter_1954_01.jpg/330px-Christian_Dior_evening_gown_called_%22Z%C3%A9mire%22%2C_Fall-Winter_1954_01.jpg"
+                   width="330" height="587" alt="Czerwony wieczorowy komplet Zémire projektu Christiana Diora"
+                   loading="lazy" decoding="async">
+            </div>
+            <figcaption>Christian Dior · wieczorowy komplet Zémire</figcaption>
+          </figure>
+          <figure>
+            <div class="photo">
+              <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/Bracelet_-_Van_Cleef_and_Arpels_%2839674334011%29.jpg/330px-Bracelet_-_Van_Cleef_and_Arpels_%2839674334011%29.jpg"
+                   width="330" height="119" alt="Bransoletka Van Cleef &amp; Arpels"
+                   loading="lazy" decoding="async">
+            </div>
+            <figcaption>Van Cleef &amp; Arpels · bransoletka</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap band" aria-labelledby="faq-title">
+      <p class="eyebrow">Pytania i odpowiedzi</p>
+      <h2 id="faq-title">Najczęstsze pytania o HooBuy spreadsheet</h2>
+      <dl class="faq">
+        <div>
+          <dt>Co to jest HooBuy spreadsheet?</dt>
+          <dd>To zestawienie linków i informacji o produktach, które pomaga znaleźć i porównać oferty. Przed wyborem sprawdź aktualną kartę produktu, sprzedawcę i konkretny wariant.</dd>
+        </div>
+        <div>
+          <dt>Gdzie prowadzą odnośniki do kategorii?</dt>
+          <dd>Odnośniki prowadzą do odpowiednich kategorii w katalogu HipobuyFind. Dostępność i warianty sprawdzisz na kartach produktów w katalogu.</dd>
+        </div>
+        <div>
+          <dt>Czy zdjęcia QC potwierdzają autentyczność produktu?</dt>
+          <dd>Zdjęcia QC pomagają ocenić widoczne cechy i stan konkretnego egzemplarza. Do weryfikacji autentyczności potrzebne są odrębne informacje o pochodzeniu produktu.</dd>
+        </div>
+        <div>
+          <dt>Jak dobrać rozmiar butów, gdy tabele sprzedawców się różnią?</dt>
+          <dd>Zmierz obie stopy i użyj długości dłuższej z nich. Porównaj wynik z tabelą konkretnej oferty i ustal, czy podana wartość oznacza długość stopy, czy długość wkładki.</dd>
+        </div>
+        <div>
+          <dt>Jak obliczyć całkowity koszt przesyłki do Polski?</dt>
+          <dd>Przelicz cenę produktu na PLN i dolicz widoczne opłaty za dostawę lokalną, obsługę i transport do Polski. Zależnie od zamówienia uwzględnij też przewalutowanie oraz podatki i opłaty importowe, jeśli mają zastosowanie.</dd>
+        </div>
+        <div>
+          <dt>Co zrobić, gdy link do produktu nie działa?</dt>
+          <dd>Zapisz nazwę modelu, identyfikator produktu i wariant. Wyszukaj ofertę ponownie i porównaj dane sprzedawcy, zdjęcia oraz tabelę wymiarów, zanim uznasz nowy link za zamiennik.</dd>
+        </div>
+      </dl>
+    </section>
+  </main>
+
+  <footer class="band">
+    <div class="wrap">
+      <a class="brand" href="https://www.hipobuyfind.com">www.hipobuyfind.com</a>
+      <p>Niezależny poradnik zakupowy. Nazwy marek identyfikują produkty przedstawione na zdjęciach. Katalog produktów jest dostępny w HipobuyFind.</p>
+      <details>
+        <summary>Autorzy i licencje zdjęć</summary>
+        <small>
+          <p>Źródło wszystkich zdjęć: Wikimedia Commons. Zdjęcia wyświetlane w zmniejszonym rozmiarze.</p>
+          <p>Nike Air Force 1, „Airforce1.jpg” — Merci0230, CC BY-SA 4.0.<br>
+          Torebka Louis Vuitton, „Vuitton Bag (1187331740).jpg” — Sandra Cohen-Rose i Colin Rose, CC BY 2.0.<br>
+          Czapka Gucci, „Young man with short black hair wearing Gucci cap from behind.jpg” — Alex Neman, CC BY-SA 4.0.<br>
+          Apaszka Hermès, „Hermès silk scarf in shop window in London.jpg” — Metro Centric, CC BY 2.0.<br>
+          Komplet Dior, „Christian Dior evening gown called ‘Zémire’, Fall-Winter 1954 01.jpg” — Mabalu, CC BY-SA 4.0.<br>
+          Bransoletka, „Bracelet - Van Cleef and Arpels (39674334011).jpg” — Tim Evanson, CC BY-SA 2.0.</p>
+          <p>Adresy licencji: creativecommons.org/licenses/by/2.0/ · creativecommons.org/licenses/by-sa/2.0/ · creativecommons.org/licenses/by-sa/4.0/</p>
+        </small>
+      </details>
+    </div>
+  </footer>
+</body>
+</html>
